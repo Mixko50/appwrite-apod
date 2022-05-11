@@ -5,8 +5,15 @@ const port = 8080;
 const sdk = require("node-appwrite");
 require("dotenv").config();
 const config = require("./config");
+const cors = require("cors");
 const { PORT } = config;
 const { createDocment } = require("./create_document");
+
+app.use(
+    cors({
+        origin: ["http://localhost:3000"],
+    })
+);
 
 require("./cron-job.js");
 
@@ -21,7 +28,7 @@ const database = new sdk.Database(client);
 
 app.get("/api/all", async (req, res) => {
     const data = await database.listDocuments(process.env.COLLECTION_ID);
-    res.send(data);
+    res.send(data.documents);
 });
 
 const createDoc = async (req, res) => {
