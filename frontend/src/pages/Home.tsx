@@ -20,7 +20,9 @@ const Home = () => {
     };
 
     const fetchedOthersDayData = async () => {
-        const data = await axios.get("http://localhost:8080/api/all");
+        const data = await axios.get(
+            `${process.env.REACT_APP_API_ENDPOINT}/api/all`
+        );
         setOthersDay(data.data);
     };
 
@@ -44,7 +46,7 @@ const Home = () => {
             <Box sx={sub_section}>
                 <Box sx={selectSection}>
                     <Select
-                        placeholder="Select others days"
+                        placeholder="Select the other day"
                         onChange={(v) => {
                             setNewData(parseInt(v.target.value));
                         }}

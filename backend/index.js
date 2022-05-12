@@ -1,7 +1,6 @@
 const { default: axios } = require("axios");
 const express = require("express");
 const app = express();
-const port = 8080;
 const sdk = require("node-appwrite");
 require("dotenv").config();
 const config = require("./config");
