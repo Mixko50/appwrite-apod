@@ -27,10 +27,10 @@ const Home = () => {
     };
 
     const setNewData = (index: number) => {
-        if (index === -1) {
-            fetchedData();
-        } else {
+        if (index >= 0) {
             setPictureOfTheDay(othersDay[index]);
+        } else {
+            fetchedData();
         }
     };
 
