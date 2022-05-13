@@ -52,9 +52,15 @@ const Home = () => {
                         }}
                     >
                         <option value={-1}>Today</option>
-                        {othersDay.map((data, index) => {
-                            return <option value={index}>{data.title}</option>;
-                        })}
+                        {othersDay
+                            .filter(
+                                (_, index) => index !== othersDay.length - 1
+                            )
+                            .map((data, index) => {
+                                return (
+                                    <option value={index}>{data.title}</option>
+                                );
+                            })}
                     </Select>
                 </Box>
             </Box>
