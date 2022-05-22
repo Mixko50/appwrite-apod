@@ -35,7 +35,7 @@ const createDoc = async (req, res) => {
     res.send(docs);
 };
 
-app.get("/api/create", createDoc);
+app.get(`/api/${process.env.CREATE_DOC}`, createDoc);
 
 app.listen(PORT, () => {
     console.log(`Example app listening on port ${PORT}`);

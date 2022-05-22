@@ -58,7 +58,9 @@ const Home = () => {
                             )
                             .map((data, index) => {
                                 return (
-                                    <option value={index}>{data.title}</option>
+                                    <option value={index}>
+                                        ({data.date}) {data.title}
+                                    </option>
                                 );
                             })}
                     </Select>
